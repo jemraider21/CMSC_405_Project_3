@@ -1,5 +1,5 @@
 import * as THREE from 'three';
-import { createCube, createPyramid } from './utils/ShapeFactory';
+import { ShapeFactory } from './utils/ShapeFactory';
 
 // Create a scene
 const scene = new THREE.Scene();
@@ -13,10 +13,10 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-const cube = createCube();
+const cube = ShapeFactory.Cube.createShape(-5, 2, 0, 0x00ff00);
 scene.add(cube);
 
-const pyramid = createPyramid();
+const pyramid = ShapeFactory.Pyramid.createShape(20, 7, -10, 0xff0000);
 scene.add(pyramid);
 
 
