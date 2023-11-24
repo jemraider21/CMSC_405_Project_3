@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { ShapeFactory } from './utils/ShapeFactory';
+import { Colors } from './utils/Colors';
 
 // Create a scene
 const scene = new THREE.Scene();
@@ -13,10 +14,10 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-const cube = ShapeFactory.Cube.createShape(-5, 2, 0, 0x00ff00);
+const cube = ShapeFactory.Cube.createShape(-5, 2, 0, Colors.Green);
 scene.add(cube);
 
-const pyramid = ShapeFactory.Pyramid.createShape(20, 7, -10, 0xff0000);
+const pyramid = ShapeFactory.Pyramid.createShape(20, 7, -10, Colors.Red);
 scene.add(pyramid);
 
 
