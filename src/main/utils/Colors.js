@@ -1,4 +1,4 @@
-class Colors {
+export class Colors {
     static Green = new Colors("Green", 0x00ff00);
     static Red = new Colors("Red", 0xff0000);
     static Blue = new Colors("Blue", 0x0000ff);
@@ -29,5 +29,3 @@ class Colors {
         return this.colorRepresentation;
     }
 }
-
-export { Colors };

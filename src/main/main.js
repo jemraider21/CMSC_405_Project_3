@@ -13,17 +13,29 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-const shape1 = ShapeFactory.createRandomShape(-5, 2, -10);
+const shape1 = ShapeFactory.createRandomShape(-15, 7);
 scene.add(shape1);
 
-const shape2 = ShapeFactory.createRandomShape(20, 7, -10);
+const shape2 = ShapeFactory.createRandomShape(0, 7);
 scene.add(shape2);
+
+const shape3 = ShapeFactory.createRandomShape(15, 7);
+scene.add(shape3);
+
+const shape4 = ShapeFactory.createRandomShape(-15, -7);
+scene.add(shape4);
+
+const shape5 = ShapeFactory.createRandomShape(0, -7);
+scene.add(shape5);
+
+const shape6 = ShapeFactory.createRandomShape(15, -7);
+scene.add(shape6);
 
 
 // Animation loop
 const animate = () => {
   requestAnimationFrame(animate);
-  const shapes = [shape1, shape2];
+  const shapes = [shape1, shape2, shape3, shape4, shape5, shape6];
   shapes.forEach(shape => {
     shape.rotation.x += 0.01;
     shape.rotation.y += 0.01;
