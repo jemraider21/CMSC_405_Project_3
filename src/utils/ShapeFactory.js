@@ -1,11 +1,17 @@
 import * as THREE from 'three';
+import { Colors } from './Colors';
 
 class ShapeFactory{
     static Cube = new ShapeFactory('Cube');
     static Pyramid = new ShapeFactory('Pyramid');
-
     constructor(shapeName){
         this.shapeName = shapeName;
+    }
+
+    static createRandomShape(xPostion, yPosition, zPosition){
+        const shapes = [this.Cube, this.Pyramid];
+        const randomNumber = Math.floor(Math.random() * shapes.length) + 1;
+        return shapes[randomNumber - 1].createShape(xPostion, yPosition, zPosition, Colors.createRandomColor());
     }
 
     createShape(xPostion, yPosition, zPosition, colorRepresentation){
@@ -47,9 +53,5 @@ class ShapeFactory{
         return pyramid;
     }
 }
-
-
-
-
 
 export { ShapeFactory };

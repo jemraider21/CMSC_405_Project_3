@@ -14,21 +14,21 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-const cube = ShapeFactory.Cube.createShape(-5, 2, 0, Colors.Green);
-scene.add(cube);
+const shape1 = ShapeFactory.createRandomShape(-5, 2, 0);
+scene.add(shape1);
 
-const pyramid = ShapeFactory.Pyramid.createShape(20, 7, -10, Colors.Red);
-scene.add(pyramid);
+const shape2 = ShapeFactory.createRandomShape(20, 7, -10);
+scene.add(shape2);
 
 
 // Animation loop
 const animate = () => {
   requestAnimationFrame(animate);
-  cube.rotation.x += 0.01;
-  cube.rotation.y += 0.01;
-
-  pyramid.rotation.x += 0.01;
-  pyramid.rotation.y += 0.01;
+  const shapes = [shape1, shape2];
+  shapes.forEach(shape => {
+    shape.rotation.x += 0.01;
+    shape.rotation.y += 0.01;
+  });
   renderer.render(scene, camera);
 };
 
