@@ -1,6 +1,5 @@
 import * as THREE from 'three';
 import { ShapeFactory } from './utils/ShapeFactory';
-import { Colors } from './utils/Colors';
 
 // Create a scene
 const scene = new THREE.Scene();
@@ -14,7 +13,7 @@ const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 document.body.appendChild(renderer.domElement);
 
-const shape1 = ShapeFactory.createRandomShape(-5, 2, 0);
+const shape1 = ShapeFactory.createRandomShape(-5, 2, -10);
 scene.add(shape1);
 
 const shape2 = ShapeFactory.createRandomShape(20, 7, -10);
