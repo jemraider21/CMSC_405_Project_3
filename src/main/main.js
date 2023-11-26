@@ -20,30 +20,14 @@ controls.update();
 
 // Create a map to hold all of the shapes for later actions
 const shapes = new Map();
-
-const shape1 = ShapeFactory.createRandomShape(-15, 7, "Shape 1");
-scene.add(shape1);
-shapes.set(shape1.name, shape1);
-
-const shape2 = ShapeFactory.createRandomShape(0, 7, "Shape 2");
-scene.add(shape2);
-shapes.set(shape2.name, shape2);
-
-const shape3 = ShapeFactory.createRandomShape(15, 7, "Shape 3");
-scene.add(shape3);
-shapes.set(shape3.name, shape3);
-
-const shape4 = ShapeFactory.createRandomShape(-15, -7, "Shape 4");
-scene.add(shape4);
-shapes.set(shape4.name, shape4);
-
-const shape5 = ShapeFactory.createRandomShape(0, -7, "Shape 5");
-scene.add(shape5);
-shapes.set(shape5.name, shape5);
-
-const shape6 = ShapeFactory.createRandomShape(15, -7, "Shape 6");
-scene.add(shape6);
-shapes.set(shape6.name, shape6);
+[
+  {x: -15, y: 7, name: "Shape 1"}, {x: 0, y: 7, name: "Shape 2"}, {x: 15, y: 7, name: "Shape 3"}, 
+  {x: -15, y: -7, name: "Shape 4"}, {x: 0, y: -7, name: "Shape 5"}, {x: 15, y: -7, name: "Shape 6"}
+].forEach((shapeAttributes) => {
+    const shape = ShapeFactory.createRandomShape(shapeAttributes.x, shapeAttributes.y, shapeAttributes.name);
+    scene.add(shape);
+    shapes.set(shape.name, shape);
+});
 
 // Animation loop
 const animate = () => {

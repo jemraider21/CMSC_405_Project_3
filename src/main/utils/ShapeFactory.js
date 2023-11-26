@@ -47,89 +47,50 @@ import { Colors } from './Colors';
         // Create a cube
         const cubeGeometry = new THREE.BoxGeometry();
         const cubeMaterial = new THREE.MeshBasicMaterial({ color: colorRepresentation});
-        const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
-        cube.name = shapeName;
-    
-        // Set the cube in the upper left corner
-        cube.position.x = xPosition;
-        cube.position.y = yPosition;
-        cube.position.z = this.zPosition;
-    
-        return cube;
+        return this.#createShapeMesh(cubeGeometry, cubeMaterial, xPosition, yPosition, shapeName);
     }
 
     #createPyramid(xPosition, yPosition, colorRepresentation, shapeName) {
         // Create a pyramid
         const pyramidGeometry = new THREE.ConeGeometry(2, 4, 4);
         const pyramidMaterial = new THREE.MeshBasicMaterial({ color: colorRepresentation});
-        const pyramid = new THREE.Mesh(pyramidGeometry, pyramidMaterial);
-        pyramid.name = shapeName;
-    
-        // Set the pyramid in the upper right corner
-        pyramid.position.x = xPosition;
-        pyramid.position.y = yPosition;
-        pyramid.position.z = this.zPosition;
-    
-        return pyramid;
+        return this.#createShapeMesh(pyramidGeometry, pyramidMaterial, xPosition, yPosition, shapeName);
     }
 
     #createSphere(xPosition, yPosition, colorRepresentation, shapeName) {
         // Create a sphere
         const sphereGeometry = new THREE.SphereGeometry(2, 32, 32);
         const sphereMaterial = new THREE.MeshBasicMaterial({ color: colorRepresentation});
-        const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
-        sphere.name = shapeName;
-    
-        // Set the sphere in the lower right corner
-        sphere.position.x = xPosition;
-        sphere.position.y = yPosition;
-        sphere.position.z = this.zPosition;
-    
-        return sphere;
+        return this.#createShapeMesh(sphereGeometry, sphereMaterial, xPosition, yPosition, shapeName);
     }
 
     #createCylinder(xPosition, yPosition, colorRepresentation, shapeName) {
         // Create a cylinder
         const cylinderGeometry = new THREE.CylinderGeometry(2, 2, 4, 32);
         const cylinderMaterial = new THREE.MeshBasicMaterial({ color: colorRepresentation});
-        const cylinder = new THREE.Mesh(cylinderGeometry, cylinderMaterial);
-        cylinder.name = shapeName;
-    
-        // Set the cylinder in the lower left corner
-        cylinder.position.x = xPosition;
-        cylinder.position.y = yPosition;
-        cylinder.position.z = this.zPosition;
-    
-        return cylinder;
+        return this.#createShapeMesh(cylinderGeometry, cylinderMaterial, xPosition, yPosition, shapeName);
     }
 
     #createCone(xPosition, yPosition, colorRepresentation, shapeName) {
         // Create a cone
         const coneGeometry = new THREE.ConeGeometry(2, 4, 32);
         const coneMaterial = new THREE.MeshBasicMaterial({ color: colorRepresentation});
-        const cone = new THREE.Mesh(coneGeometry, coneMaterial);
-        cone.name = shapeName;
-    
-        // Set the cone in the center
-        cone.position.x = xPosition;
-        cone.position.y = yPosition;
-        cone.position.z = this.zPosition;
-    
-        return cone;
+        return this.#createShapeMesh(coneGeometry, coneMaterial, xPosition, yPosition, shapeName);
     }
 
     #createRectangle(xPosition, yPosition, colorRepresentation, shapeName) {
         // Create a rectangle
         const rectangleGeometry = new THREE.BoxGeometry(2, 4, 2);
         const rectangleMaterial = new THREE.MeshBasicMaterial({ color: colorRepresentation});
-        const rectangle = new THREE.Mesh(rectangleGeometry, rectangleMaterial);
-        rectangle.name = shapeName;
-    
-        // Set the rectangle in the center
-        rectangle.position.x = xPosition;
-        rectangle.position.y = yPosition;
-        rectangle.position.z = this.zPosition;
-    
-        return rectangle;
+        return this.#createShapeMesh(rectangleGeometry, rectangleMaterial, xPosition, yPosition, shapeName);
+    }
+
+    #createShapeMesh(geometry, material, xPosition, yPosition, shapeName){
+        const shape = new THREE.Mesh(geometry, material);
+        shape.name = shapeName;
+        shape.position.x = xPosition;
+        shape.position.y = yPosition;
+        shape.position.z = this.zPosition;
+        return shape;
     }
 }
